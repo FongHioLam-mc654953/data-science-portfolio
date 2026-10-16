@@ -1,20 +1,38 @@
 /* ==========================================================================
    Data Science Portfolio — style.css
-   Modern minimal dark theme · responsive · full-size images
+   Bright & fresh teal / aqua / sky-blue theme
+   Responsive · full-size images · same layout as before
    ========================================================================== */
 
 :root {
-  --bg-0: #0b1120;
-  --bg-1: #111a30;
-  --bg-2: #1a2540;
-  --card: #18223c;
-  --card-hover: #1f2c4d;
-  --accent: #38bdf8;
-  --accent-2: #818cf8;
-  --text: #e6edf7;
-  --text-dim: #9fb0c9;
-  --border: rgba(148, 163, 184, 0.18);
-  --shadow: 0 10px 30px rgba(2, 6, 23, 0.45);
+  /* Bright fresh palette: lake-green (teal) + sky-blue */
+  --teal-700: #00796b;
+  --teal-600: #00897b;
+  --teal-500: #009688;
+  --teal-100: #b2dfdb;
+  --teal-50: #e0f2f1;
+  --aqua-500: #00bcd4;
+  --aqua-100: #b2ebf2;
+  --sky-500: #29b6f6;
+  --sky-300: #4fc3f7;
+  --sky-100: #b3e5fc;
+  --sky-50: #e1f5fe;
+
+  /* Surfaces: light gradient background, white cards */
+  --bg-gradient: linear-gradient(160deg, #e0f7fa 0%, #e0f2f1 55%, #e1f5fe 100%);
+  --bg-solid: #e0f7fa;
+  --card: #ffffff;
+  --card-hover: #f4fbfd;
+  --img-bg: #f3fafc;
+
+  /* Text: deep blue-grey for contrast on light background */
+  --text: #14364d;
+  --text-dim: #51697d;
+
+  --accent: var(--teal-600);
+  --accent-2: var(--sky-500);
+  --border: rgba(0, 137, 123, 0.16);
+  --shadow: 0 12px 32px rgba(21, 101, 192, 0.12);
   --radius: 18px;
   --maxw: 1080px;
 }
@@ -25,14 +43,15 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
-  background: var(--bg-0);
+  background: var(--bg-gradient);
+  background-attachment: fixed;
   color: var(--text);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
 
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a { color: var(--teal-600); text-decoration: none; transition: color 0.15s ease; }
+a:hover { color: var(--sky-500); text-decoration: underline; }
 
 .container {
   max-width: var(--maxw);
@@ -47,6 +66,7 @@ h2 {
   font-weight: 700;
   letter-spacing: -0.02em;
   margin-bottom: 12px;
+  color: var(--text);
 }
 
 .section-sub {
@@ -55,16 +75,16 @@ h2 {
   margin-bottom: 36px;
 }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero: bright blue-green gradient ---------- */
 .hero {
   min-height: 92vh;
   display: flex;
   align-items: center;
   background:
-    radial-gradient(900px 480px at 12% -10%, rgba(56, 189, 248, 0.22), transparent 60%),
-    radial-gradient(800px 420px at 90% 10%, rgba(129, 140, 248, 0.18), transparent 55%),
-    linear-gradient(180deg, var(--bg-1), var(--bg-0));
-  border-bottom: 1px solid var(--border);
+    radial-gradient(900px 480px at 12% -10%, rgba(41, 182, 246, 0.28), transparent 60%),
+    radial-gradient(800px 420px at 90% 10%, rgba(0, 150, 136, 0.22), transparent 55%),
+    linear-gradient(135deg, #b3e5fc 0%, #b2dfdb 50%, #a7ffeb 100%);
+  border-bottom: 1px solid rgba(0, 137, 123, 0.2);
 }
 
 .hero-inner { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
@@ -73,12 +93,14 @@ h2 {
   display: inline-block;
   font-size: 0.8rem;
   letter-spacing: 0.08em;
-  color: var(--accent);
-  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: var(--teal-700);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(0, 137, 123, 0.35);
   border-radius: 999px;
   padding: 5px 14px;
   margin-bottom: 18px;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 .hero h1 {
@@ -87,21 +109,18 @@ h2 {
   letter-spacing: -0.03em;
   line-height: 1.1;
   margin-bottom: 12px;
-  background: linear-gradient(90deg, var(--text) 20%, var(--accent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text);
 }
 
 .hero .title {
   font-size: clamp(1.05rem, 2.4vw, 1.35rem);
   font-weight: 600;
-  color: var(--accent-2);
+  color: var(--teal-700);
   margin-bottom: 18px;
 }
 
 .hero .intro {
-  color: var(--text-dim);
+  color: #3b5b6d;
   max-width: 640px;
   font-size: 1.05rem;
   margin-bottom: 28px;
@@ -113,24 +132,26 @@ h2 {
   border-radius: 10px;
   padding: 12px 26px;
   margin-right: 12px;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
 }
 
 .btn:hover { text-decoration: none; transform: translateY(-2px); }
 
 .btn-primary {
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  color: #0b1120;
-  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.25);
+  background: linear-gradient(90deg, var(--teal-500), var(--sky-500));
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 150, 136, 0.3);
 }
+
+.btn-primary:hover { color: #ffffff; }
 
 .btn-ghost {
-  border: 1px solid var(--border);
-  color: var(--text);
-  background: transparent;
+  border: 1px solid rgba(0, 137, 123, 0.45);
+  color: var(--teal-700);
+  background: rgba(255, 255, 255, 0.6);
 }
 
-.btn-ghost:hover { background: rgba(148, 163, 184, 0.1); }
+.btn-ghost:hover { background: rgba(255, 255, 255, 0.9); color: var(--sky-500); }
 
 /* ---------- About ---------- */
 .about-grid {
@@ -151,24 +172,29 @@ h2 {
   border-radius: 12px;
   color: var(--text);
   font-size: 0.95rem;
+  box-shadow: 0 4px 14px rgba(21, 101, 192, 0.08);
 }
-.fact-list b { color: var(--accent); }
+.fact-list b { color: var(--teal-700); }
 
 /* ---------- Skills ---------- */
 .skill-tags { display: flex; flex-wrap: wrap; gap: 12px; }
 
 .tag {
-  background: var(--card);
-  border: 1px solid var(--border);
+  background: #e8f7fb;
+  border: 1px solid rgba(0, 150, 136, 0.25);
   border-radius: 999px;
   padding: 9px 18px;
   font-size: 0.92rem;
-  font-weight: 500;
-  color: var(--text);
-  transition: border-color 0.15s ease, color 0.15s ease;
+  font-weight: 600;
+  color: var(--teal-700);
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
 }
 
-.tag:hover { border-color: var(--accent); color: var(--accent); }
+.tag:hover {
+  border-color: var(--sky-500);
+  background: #dff3fd;
+  color: var(--sky-500);
+}
 
 /* ---------- Project ---------- */
 .project-card {
@@ -183,7 +209,7 @@ h2 {
 
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(2, 6, 23, 0.6);
+  box-shadow: 0 18px 40px rgba(21, 101, 192, 0.18);
   background: var(--card-hover);
 }
 
@@ -196,16 +222,16 @@ h2 {
   flex-wrap: wrap;
 }
 
-.project-head h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; }
+.project-head h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; color: var(--text); }
 
 .status {
   display: inline-block;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: #4ade80;
-  background: rgba(74, 222, 128, 0.12);
-  border: 1px solid rgba(74, 222, 128, 0.35);
+  color: var(--teal-700);
+  background: var(--teal-50);
+  border: 1px solid rgba(0, 137, 123, 0.35);
   border-radius: 999px;
   padding: 5px 12px;
   white-space: nowrap;
@@ -213,7 +239,7 @@ h2 {
 
 .project-body { padding: 0 28px 24px; color: var(--text-dim); font-size: 0.96rem; }
 
-.mod-desc { margin-bottom: 10px; }
+.mod-desc { margin-bottom: 10px; color: var(--text-dim); }
 
 .mod-note {
   font-size: 0.9rem;
@@ -221,7 +247,7 @@ h2 {
   margin-bottom: 6px;
 }
 
-.mod-note b { color: var(--accent); }
+.mod-note b { color: var(--teal-700); }
 
 /* ---------- Gallery: full-size images, clickable ---------- */
 .gallery {
@@ -232,7 +258,7 @@ h2 {
 }
 
 .gallery figure {
-  background: var(--bg-1);
+  background: var(--img-bg);
   border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
@@ -245,13 +271,13 @@ h2 {
   width: 100%;
   height: auto;          /* keep the original aspect ratio — no cropping */
   object-fit: contain;   /* safety net; with height:auto this never crops */
-  background: var(--bg-1);
+  background: var(--img-bg);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .gallery figure:hover img {
   transform: scale(1.015);
-  box-shadow: 0 0 0 2px var(--accent);
+  box-shadow: 0 0 0 2px var(--sky-500);
 }
 
 .gallery figcaption {
@@ -263,7 +289,7 @@ h2 {
 
 .gallery figcaption::after {
   content: " ⤢ (click to enlarge)";
-  color: var(--accent-2);
+  color: var(--sky-500);
 }
 
 .repo-note {
@@ -274,11 +300,12 @@ h2 {
 
 /* ---------- Footer ---------- */
 footer {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(0, 137, 123, 0.2);
   padding: 34px 0;
   text-align: center;
   color: var(--text-dim);
   font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.55);
 }
 
 footer .socials { margin-bottom: 10px; }
