@@ -1,6 +1,6 @@
 /* ==========================================================================
    Data Science Portfolio — style.css
-   Modern minimal dark theme · responsive
+   Modern minimal dark theme · responsive · full-size images
    ========================================================================== */
 
 :root {
@@ -51,7 +51,7 @@ h2 {
 
 .section-sub {
   color: var(--text-dim);
-  max-width: 640px;
+  max-width: 720px;
   margin-bottom: 36px;
 }
 
@@ -102,7 +102,7 @@ h2 {
 
 .hero .intro {
   color: var(--text-dim);
-  max-width: 620px;
+  max-width: 640px;
   font-size: 1.05rem;
   margin-bottom: 28px;
 }
@@ -177,6 +177,7 @@ h2 {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   overflow: hidden;
+  margin-bottom: 28px;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
@@ -195,7 +196,7 @@ h2 {
   flex-wrap: wrap;
 }
 
-.project-head h3 { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.01em; }
+.project-head h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; }
 
 .status {
   display: inline-block;
@@ -210,23 +211,24 @@ h2 {
   white-space: nowrap;
 }
 
-.project-body { padding: 0 28px 22px; color: var(--text-dim); font-size: 0.96rem; }
+.project-body { padding: 0 28px 24px; color: var(--text-dim); font-size: 0.96rem; }
 
-.project-body h4 {
-  color: var(--text);
-  font-size: 0.95rem;
-  margin: 16px 0 6px;
-  letter-spacing: 0.02em;
+.mod-desc { margin-bottom: 10px; }
+
+.mod-note {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  margin-bottom: 6px;
 }
 
-.project-body ul { padding-left: 20px; margin-bottom: 6px; }
-.project-body li { margin-bottom: 5px; }
+.mod-note b { color: var(--accent); }
 
+/* ---------- Gallery: full-size images, clickable ---------- */
 .gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  margin: 20px 0;
+  gap: 16px;
+  margin: 18px 0 8px;
 }
 
 .gallery figure {
@@ -236,15 +238,21 @@ h2 {
   overflow: hidden;
 }
 
+.gallery a { display: block; }
+
 .gallery img {
-  width: 100%;
-  height: 190px;
-  object-fit: cover;
   display: block;
-  transition: transform 0.25s ease;
+  width: 100%;
+  height: auto;          /* keep the original aspect ratio — no cropping */
+  object-fit: contain;   /* safety net; with height:auto this never crops */
+  background: var(--bg-1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.gallery figure:hover img { transform: scale(1.02); }
+.gallery figure:hover img {
+  transform: scale(1.015);
+  box-shadow: 0 0 0 2px var(--accent);
+}
 
 .gallery figcaption {
   font-size: 0.8rem;
@@ -253,7 +261,16 @@ h2 {
   border-top: 1px solid var(--border);
 }
 
-.project-links { margin-top: 8px; }
+.gallery figcaption::after {
+  content: " ⤢ (click to enlarge)";
+  color: var(--accent-2);
+}
+
+.repo-note {
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 10px;
+}
 
 /* ---------- Footer ---------- */
 footer {

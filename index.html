@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FONG HIO LAM · Data Science Portfolio</title>
-  <meta name="description" content="Data science & AI portfolio of FONG HIO LAM — University of Macau graduate student." />
+  <meta name="description" content="Data science & AI portfolio of FONG HIO LAM — Master's student at the University of Macau." />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
@@ -14,10 +14,11 @@
     <div class="hero-inner">
       <span class="badge">Data Science · Machine Learning</span>
       <h1>FONG HIO LAM</h1>
-      <p class="title">Data Science &amp; AI Graduate Student · University of Macau</p>
+      <p class="title">Master's Student in Data Science &amp; AI · University of Macau</p>
       <p class="intro">
-        Passionate about turning raw data into actionable insights. I build end-to-end
-        data analysis and machine learning projects — from cleaning and EDA to modelling,
+        Currently pursuing my M.Sc. in Data Science &amp; AI at the University of Macau.
+        Passionate about turning raw data into actionable insights — I build end-to-end
+        data analysis and machine learning projects, from cleaning and EDA to modelling,
         validation and clear visualisation.
       </p>
       <a class="btn btn-primary" href="#projects">View Projects</a>
@@ -33,11 +34,11 @@
       <div class="about-grid">
         <div>
           <p>
-            I am a graduate student at the University of Macau focusing on
-            <strong>data science and artificial intelligence</strong>. My interests lie in
-            data analysis and machine learning, with hands-on experience applying the full
-            analytical workflow to real datasets — including pricing problems, regression
-            modelling and hyper-parameter tuning.
+            I am a <strong>graduate student currently pursuing a Master's degree in Data
+            Science &amp; AI</strong> at the University of Macau. My focus is on data analysis
+            and machine learning, with hands-on experience applying the full analytical
+            workflow to real datasets — including pricing problems, regression modelling,
+            cross-validation and hyper-parameter tuning.
           </p>
           <p>
             I enjoy the process of discovery: asking good research questions, exploring data
@@ -45,7 +46,7 @@
           </p>
         </div>
         <ul class="fact-list">
-          <li><b>🎓 Degree:</b> Graduate Student, Data Science / AI — University of Macau</li>
+          <li><b>🎓 Degree:</b> M.Sc. in Data Science &amp; AI (in progress) — University of Macau</li>
           <li><b>🎯 Interests:</b> Data Analysis · Machine Learning · Visualisation</li>
           <li><b>⚙️ Stack:</b> Python · pandas · NumPy · scikit-learn · PyTorch</li>
           <li><b>📁 GitHub:</b> <a href="https://github.com/FongHioLam-mc654953/data-science-project" target="_blank" rel="noopener">FongHioLam-mc654953</a></li>
@@ -76,63 +77,179 @@
   <section id="projects" class="projects">
     <div class="container">
       <h2>Projects</h2>
-      <p class="section-sub">Selected work demonstrating the full data science workflow.</p>
+      <p class="section-sub">
+        CISC7204 Assignment 1 — a full-pipeline price regression project. Each module below
+        covers one stage of the workflow, from data import to final predictions.
+        Click any chart to view the full-resolution image.
+      </p>
 
+      <!-- Module 01 -->
       <article class="project-card">
         <div class="project-head">
-          <h3>CISC7204 Assignment 1 — Price Regression Full-Pipeline Analysis</h3>
+          <h3>Module 01 — Data Import</h3>
           <span class="status">✓ Completed</span>
         </div>
         <div class="project-body">
-          <h4>Research Questions</h4>
-          <ul>
-            <li>Can car prices and laptop prices be predicted from technical specifications?</li>
-            <li>Which features drive house prices in King County, WA?</li>
-            <li>How do BMI, smoker status and age affect medical insurance costs?</li>
-          </ul>
-
-          <h4>Methods</h4>
-          <ul>
-            <li>Data cleaning: missing-value imputation, normalisation, dummy variables</li>
-            <li>EDA: correlation heatmaps, scatter &amp; box plots, pivot tables</li>
-            <li>Modelling: simple / multiple / polynomial linear regression, scikit-learn Pipeline</li>
-            <li>Validation &amp; tuning: k-fold cross-validation, Ridge regression, GridSearchCV</li>
-          </ul>
-
-          <h4>Key Findings</h4>
-          <ul>
-            <li>Car price correlates strongly with engine size and curb weight</li>
-            <li>High-degree polynomial fits overfit quickly; Ridge with a tuned alpha stabilises them</li>
-            <li>Sqft living area dominates King County house price; smoker status drives insurance charges</li>
-          </ul>
-
+          <p class="mod-desc">Load and inspect the car (Auto) and laptop price datasets, checking shape, dtypes and missing values.</p>
+          <p class="mod-note"><b>Notebooks:</b> Module01_Lab01_Data_Import_Auto.ipynb · Module01_Lab02_Data_Import_Laptops.ipynb</p>
+          <p class="mod-note"><b>Data:</b> UCI Automobile &amp; Laptops datasets (CSV)</p>
           <div class="gallery">
             <figure>
-              <img src="images/module03_correlation_matrix.png" alt="Correlation matrix — EDA (Module 03)" loading="lazy" />
-              <figcaption>Feature correlation matrix (EDA, Module 03)</figcaption>
+              <a href="images/module01_basic_insights.png" target="_blank" rel="noopener"><img src="images/module01_basic_insights.png" alt="Module 01 Basic Insights" loading="lazy" /></a>
+              <figcaption>Basic insights — first look at the data</figcaption>
             </figure>
             <figure>
-              <img src="images/module06_price_vs_sqft_correlations.png" alt="House price vs sqft living area (Module 06)" loading="lazy" />
-              <figcaption>House price vs sqft living area &amp; correlations (Module 06)</figcaption>
-            </figure>
-            <figure>
-              <img src="images/module04_compare_models.png" alt="Model comparison — simple vs polynomial regression (Module 04)" loading="lazy" />
-              <figcaption>Model comparison — simple vs polynomial regression (Module 04)</figcaption>
-            </figure>
-            <figure>
-              <img src="images/module05_overfitting_scores.png" alt="Overfitting analysis — cross-validation scores (Module 05)" loading="lazy" />
-              <figcaption>Overfitting analysis — cross-validation scores (Module 05)</figcaption>
+              <a href="images/module01_summary_statistics.png" target="_blank" rel="noopener"><img src="images/module01_summary_statistics.png" alt="Module 01 Summary Statistics" loading="lazy" /></a>
+              <figcaption>Summary statistics overview</figcaption>
             </figure>
           </div>
-
-          <p class="project-links">
-            🔗 Repository:
-            <a href="https://github.com/FongHioLam-mc654953/data-science-project" target="_blank" rel="noopener">
-              github.com/FongHioLam-mc654953/data-science-project
-            </a>
-          </p>
         </div>
       </article>
+
+      <!-- Module 02 -->
+      <article class="project-card">
+        <div class="project-head">
+          <h3>Module 02 — Data Cleaning</h3>
+          <span class="status">✓ Completed</span>
+        </div>
+        <div class="project-body">
+          <p class="mod-desc">Handle missing values, merge columns and create dummy variables to prepare clean analysis-ready tables.</p>
+          <p class="mod-note"><b>Notebooks:</b> Module02_Lab01_Data_Cleaning_Auto.ipynb · Module02_Lab02_Data_Cleaning_Laptops.ipynb</p>
+          <p class="mod-note"><b>Data:</b> UCI Automobile &amp; Laptops datasets (cleaned)</p>
+          <div class="gallery">
+            <figure>
+              <a href="images/module02_horsepower_histogram.png" target="_blank" rel="noopener"><img src="images/module02_horsepower_histogram.png" alt="Module 02 Horsepower Histogram" loading="lazy" /></a>
+              <figcaption>Horsepower distribution histogram</figcaption>
+            </figure>
+            <figure>
+              <a href="images/module02_price_bins.png" target="_blank" rel="noopener"><img src="images/module02_price_bins.png" alt="Module 02 Price Bins" loading="lazy" /></a>
+              <figcaption>Price bins after cleaning</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- Module 03 -->
+      <article class="project-card">
+        <div class="project-head">
+          <h3>Module 03 — Exploratory Data Analysis</h3>
+          <span class="status">✓ Completed</span>
+        </div>
+        <div class="project-body">
+          <p class="mod-desc">Visual and statistical exploration: correlation heatmaps, scatter plots and distributions to find key relationships.</p>
+          <p class="mod-note"><b>Notebooks:</b> Module03_Lab01_EDA_Auto.ipynb · Module03_Lab02_EDA_Laptops.ipynb</p>
+          <p class="mod-note"><b>Data:</b> UCI Automobile &amp; Laptops datasets (EDA-ready)</p>
+          <div class="gallery">
+            <figure>
+              <a href="images/module03_correlation_matrix.png" target="_blank" rel="noopener"><img src="images/module03_correlation_matrix.png" alt="Module 03 Correlation Matrix" loading="lazy" /></a>
+              <figcaption>Feature correlation matrix</figcaption>
+            </figure>
+            <figure>
+              <a href="images/module03_scatter_enginesize_vs_price.png" target="_blank" rel="noopener"><img src="images/module03_scatter_enginesize_vs_price.png" alt="Module 03 Engine Size vs Price" loading="lazy" /></a>
+              <figcaption>Engine size vs price scatter</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- Module 04 -->
+      <article class="project-card">
+        <div class="project-head">
+          <h3>Module 04 — Model Development</h3>
+          <span class="status">✓ Completed</span>
+        </div>
+        <div class="project-body">
+          <p class="mod-desc">Build simple, multiple and polynomial linear regression models and compare their performance.</p>
+          <p class="mod-note"><b>Notebooks:</b> Module04_Lab01_Model_Development_UsedCars.ipynb · Module04_Lab02_Model_Development_Laptops.ipynb</p>
+          <p class="mod-note"><b>Data:</b> Used cars &amp; laptops (engineered features)</p>
+          <div class="gallery">
+            <figure>
+              <a href="images/module04_compare_models.png" target="_blank" rel="noopener"><img src="images/module04_compare_models.png" alt="Module 04 Model Comparison" loading="lazy" /></a>
+              <figcaption>Simple vs polynomial regression comparison</figcaption>
+            </figure>
+            <figure>
+              <a href="images/module04_regression_highway_mpg.png" target="_blank" rel="noopener"><img src="images/module04_regression_highway_mpg.png" alt="Module 04 Regression Highway MPG" loading="lazy" /></a>
+              <figcaption>Regression fit on highway MPG</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- Module 05 -->
+      <article class="project-card">
+        <div class="project-head">
+          <h3>Module 05 — Cross-Validation · Ridge · Grid Search</h3>
+          <span class="status">✓ Completed</span>
+        </div>
+        <div class="project-body">
+          <p class="mod-desc">Detect overfitting with k-fold cross-validation, stabilise high-degree polynomials with Ridge, and tune hyper-parameters via GridSearchCV.</p>
+          <p class="mod-note"><b>Notebooks:</b> Module05_Lab01_CrossValidation_Ridge_Auto.ipynb · Module05_Lab02_CrossValidation_Ridge_Laptops.ipynb</p>
+          <p class="mod-note"><b>Data:</b> Auto &amp; Laptops (polynomial features)</p>
+          <div class="gallery">
+            <figure>
+              <a href="images/module05_r2_across_polynomial_orders.png" target="_blank" rel="noopener"><img src="images/module05_r2_across_polynomial_orders.png" alt="Module 05 R2 Across Polynomial Orders" loading="lazy" /></a>
+              <figcaption>R² across polynomial orders</figcaption>
+            </figure>
+            <figure>
+              <a href="images/module05_overfitting_scores.png" target="_blank" rel="noopener"><img src="images/module05_overfitting_scores.png" alt="Module 05 Overfitting Scores" loading="lazy" /></a>
+              <figcaption>Cross-validation overfitting scores</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- Module 06 -->
+      <article class="project-card">
+        <div class="project-head">
+          <h3>Module 06 — House Pricing &amp; Insurance Cost</h3>
+          <span class="status">✓ Completed</span>
+        </div>
+        <div class="project-body">
+          <p class="mod-desc">Final project and practice: predict King County house prices from sqft features, and medical insurance charges from BMI / smoker status.</p>
+          <p class="mod-note"><b>Notebooks:</b> Module06_FinalProject_HousePricing.ipynb · Module06_PracticeProject_InsuranceCost.ipynb</p>
+          <p class="mod-note"><b>Data:</b> Kaggle King County House &amp; Medical Insurance datasets</p>
+          <div class="gallery">
+            <figure>
+              <a href="images/module06_price_vs_sqft_correlations.png" target="_blank" rel="noopener"><img src="images/module06_price_vs_sqft_correlations.png" alt="Module 06 Price vs Sqft Correlations" loading="lazy" /></a>
+              <figcaption>House price vs sqft living area &amp; correlations</figcaption>
+            </figure>
+            <figure>
+              <a href="images/module06_bmi_smoker_effects.png" target="_blank" rel="noopener"><img src="images/module06_bmi_smoker_effects.png" alt="Module 06 BMI Smoker Effects" loading="lazy" /></a>
+              <figcaption>BMI &amp; smoker effects on insurance charges</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- Preliminary Project -->
+      <article class="project-card">
+        <div class="project-head">
+          <h3>Preliminary Project — Macau Bus Supply &amp; Demand</h3>
+          <span class="status">✓ Completed</span>
+        </div>
+        <div class="project-body">
+          <p class="mod-desc">Analyse Macau public bus supply and demand using a paired project dataset — verifying the research question with SQLite queries and visualisations.</p>
+          <p class="mod-note"><b>Notebook:</b> PreliminaryProject_ProposalVerification.ipynb</p>
+          <p class="mod-note"><b>Data:</b> Bus supply/demand records (SQLite · CSV)</p>
+          <div class="gallery">
+            <figure>
+              <a href="images/bus_fig1_supply_demand_match.png" target="_blank" rel="noopener"><img src="images/bus_fig1_supply_demand_match.png" alt="Bus Supply Demand Match" loading="lazy" /></a>
+              <figcaption>Research question — supply &amp; demand match</figcaption>
+            </figure>
+            <figure>
+              <a href="images/bus_fig2_district_event_shuttle.png" target="_blank" rel="noopener"><img src="images/bus_fig2_district_event_shuttle.png" alt="Bus District Event Shuttle" loading="lazy" /></a>
+              <figcaption>District event shuttle analysis</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <p class="repo-note">
+        🔗 Full repository:
+        <a href="https://github.com/FongHioLam-mc654953/data-science-project" target="_blank" rel="noopener">
+          github.com/FongHioLam-mc654953/data-science-project
+        </a>
+      </p>
     </div>
   </section>
 
