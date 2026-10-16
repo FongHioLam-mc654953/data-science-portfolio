@@ -1,3 +1,14 @@
+---
+AIGC:
+    Label: "1"
+    ContentProducer: 001191440300708461136T1XGW3
+    ProduceID: 3948123ca1e8ab71efaa265617bdd19e_4c24e3bcc96311f196f9525400248c00
+    ReservedCode1: RS3s+ZC4asrYoH9RK53OjQMphwZmNXj2KcIJFUFh4CSmChlGWps/P6bo0oz5Qjypy1s8kkcsbMehDQYmz8y5/ssu34KV73wfUoA4Bo7u1/m6Gy/L1BmomTAGB6rZyZ9/jTjftahU25gsdohHMTlzr0qCPCpEWuGLuU6MZcfWXRDxCZun0KQqzyfl5xA=
+    ContentPropagator: 001191440300708461136T1XGW3
+    PropagateID: 3948123ca1e8ab71efaa265617bdd19e_4c24e3bcc96311f196f9525400248c00
+    ReservedCode2: RS3s+ZC4asrYoH9RK53OjQMphwZmNXj2KcIJFUFh4CSmChlGWps/P6bo0oz5Qjypy1s8kkcsbMehDQYmz8y5/ssu34KV73wfUoA4Bo7u1/m6Gy/L1BmomTAGB6rZyZ9/jTjftahU25gsdohHMTlzr0qCPCpEWuGLuU6MZcfWXRDxCZun0KQqzyfl5xA=
+---
+
 # FONG HIO LAM
 
 **Data Science / AI Graduate Student · University of Macau**
@@ -29,5 +40,8 @@ A complete machine learning learning project covering the full workflow: data im
 
 ![Model comparison — simple vs polynomial regression (Module 04)](images/module04_compare_models.png)
 
+![Overfitting analysis — cross-validation scores (Module 05)](images/module05_overfitting_scores.png)
+
 - **Repository**: [github.com/FongHioLam-mc654953/data-science-project](https://github.com/FongHioLam-mc654953/data-science-project)
 - **Status**: Completed
+*（内容由AI生成，仅供参考）*
