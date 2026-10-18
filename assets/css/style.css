@@ -89,6 +89,18 @@ h2 {
 
 .hero-inner { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
+.hero .avatar {
+  display: block;
+  width: 132px;
+  height: 132px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 24px rgba(0, 150, 136, 0.32);
+  margin-bottom: 20px;
+  background: #ffffff;
+}
+
 .hero .badge {
   display: inline-block;
   font-size: 0.8rem;

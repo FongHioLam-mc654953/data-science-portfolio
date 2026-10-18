@@ -15,6 +15,8 @@ AIGC:
 
 # FONG HIO LAM
 
+![FONG HIO LAM avatar](https://github.com/FongHioLam-mc654953.png){ width="128" style="border-radius:50%" }
+
 **Master's Student in Data Science & AI (in progress) · University of Macau**
 
 Currently pursuing my **M.Sc. in Data Science & AI** at the University of Macau. Interested in **data analysis** and **machine learning** — building end-to-end pipelines from raw data to models, and turning insights into clear visualisations.
@@ -32,6 +34,7 @@ Currently pursuing my **M.Sc. in Data Science & AI** at the University of Macau.
 - **University**: University of Macau (UM) — Macao SAR, China
 - **Programme**: M.Sc. in Data Science & AI (in progress)
 - **Key Courses**: CISC7021 Applied NLP · CISC7201 Data Mining · CISC7204 Machine Learning · CISC7026 Deep Learning
+- **Contact**: [mc65495@um.edu.mo](mailto:mc65495@um.edu.mo)
 
 ## Projects
 
