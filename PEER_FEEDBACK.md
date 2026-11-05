@@ -1,4 +1,4 @@
-# Peer Review Feedback and Change Log
+﻿# Peer Review Feedback and Change Log
 
 | Field | Value |
 | --- | --- |
@@ -99,7 +99,7 @@ Action taken: adopted. The Projects section now opens with a **Project Overview*
 | 11 | Added pair-project attribution to the Preliminary Project | 3.7 | `index.html`, `index.md` | `63cb59c` |
 | 12 | Added dataset provenance for the four datasets | 3.4 | `index.html` | `63cb59c` |
 | 13 | Created this feedback and change-log file and linked it from the repository README and the portfolio index | 3.1 | `PEER_FEEDBACK.md`, `README.md`, `index.md` | `63cb59c` |
-| 14 | Removed the generated metadata block and disclaimer text that had leaked into this file, and closed the identifier question | 4.1, 4.2, 4.4 | `PEER_FEEDBACK.md` | `PENDING_SHA` |
+| 14 | Removed the generated metadata block and disclaimer text that had leaked into this file, and closed the identifier question | 4.1, 4.2, 4.4 | `PEER_FEEDBACK.md` | `28b051c` |
 
 ### 3.1 Deferred and open items
 
