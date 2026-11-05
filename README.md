@@ -1,14 +1,3 @@
----
-AIGC:
-    Label: "1"
-    ContentProducer: 001191440300708461136T1XGW3
-    ProduceID: 3948123ca1e8ab71efaa265617bdd19e_4cfc888dc96311f196f9525400248c00
-    ReservedCode1: wGklEVDTMFdbowPfffvA3zCoGHpqh+lmyjle9Dal8Rpih39cIVzJ8JybJf2EtXPDZhM1vzF0kYMBYY/yYMhyfrDLEjRrk8gFoQhycDhJGOB2zqtbEFA85Gg8Pp8Ri+knqo82V5yHAEACeIeq1BkTfyeItVKX2Hx5jz3myIlccI4Id449JoKrsyL3nc0=
-    ContentPropagator: 001191440300708461136T1XGW3
-    PropagateID: 3948123ca1e8ab71efaa265617bdd19e_4cfc888dc96311f196f9525400248c00
-    ReservedCode2: wGklEVDTMFdbowPfffvA3zCoGHpqh+lmyjle9Dal8Rpih39cIVzJ8JybJf2EtXPDZhM1vzF0kYMBYY/yYMhyfrDLEjRrk8gFoQhycDhJGOB2zqtbEFA85Gg8Pp8Ri+knqo82V5yHAEACeIeq1BkTfyeItVKX2Hx5jz3myIlccI4Id449JoKrsyL3nc0=
----
-
 # Data Science Portfolio
 
 This is the personal **data science portfolio** repository of **FONG HIO LAM** — a data science / AI graduate student at the University of Macau, interested in data analysis and machine learning.
@@ -18,5 +7,12 @@ The repository contains:
 - **Personal homepage** — see [index.md](index.md) for the introduction, technical skills and project showcase (rendered at the repository root for GitHub Pages).
 - **Project showcase** — the CISC7204 Assignment 1 price regression full-pipeline analysis, with research questions, methods, key findings and visualisations, and a link to the project repository.
 
+## Peer review and change log
+
+This portfolio has been reviewed by a peer reviewer. The review, the response to each item and a change log that links every fix to its commit are recorded in [PEER_FEEDBACK.md](PEER_FEEDBACK.md).
+
+- **Review date**: 2026-11-05
+- **Review scope**: clarity of the research question, presentation of findings, visualisation readability, and missing project-level sections
+- **Outcome**: research questions, approach, key findings and limitations were added to the site, Module 05 findings were restructured into interpreted bullets, chart captions were rewritten as takeaways, and the auto-generated metadata headers were removed from this README and from [index.md](index.md)
+
 Visit [index.md](index.md) to explore the portfolio.
-*（内容由AI生成，仅供参考）*

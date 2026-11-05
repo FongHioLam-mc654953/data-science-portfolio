@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FONG HIO LAM · Data Science Portfolio</title>
-  <meta name="description" content="FONG HIO LAM — Data Science & AI portfolio. Master's student at the University of Macau (M.Sc. in Data Science & AI). Machine learning projects: regression modelling, cross-validation, Ridge, GridSearchCV, NLP and deep learning." />
+  <meta name="description" content="FONG HIO LAM — Data Science & AI portfolio. Master's student at the University of Macau (M.Sc. in Data Science & AI). Machine learning projects: price regression on car, laptop, house-price and medical-insurance data, with cross-validation, Ridge regression and GridSearchCV." />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%2300bcd4'/><stop offset='1' stop-color='%23009688'/></linearGradient></defs><rect width='64' height='64' rx='14' fill='url(%23g)'/><text x='32' y='43' font-size='26' font-family='Segoe UI,Arial' font-weight='700' fill='%23ffffff' text-anchor='middle'>DS</text></svg>" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
@@ -14,7 +14,7 @@
   <header class="hero">
     <div class="hero-inner">
       <img class="avatar" src="https://github.com/FongHioLam-mc654953.png" alt="FONG HIO LAM avatar" />
-      <span class="badge">Data Science · Machine Learning</span>
+      <span class="badge">CISC7204 Machine Learning · November 2026</span>
       <h1>FONG HIO LAM</h1>
       <p class="title">Master's Student in Data Science &amp; AI · University of Macau</p>
       <p class="intro">
@@ -83,10 +83,51 @@
     <div class="container">
       <h2>Projects</h2>
       <p class="section-sub">
-        CISC7204 Assignment 1 — a full-pipeline price regression project. Each module below
-        covers one stage of the workflow, from data import to final predictions.
-        Click any chart to view the full-resolution image.
+        CISC7204 Assignment 1 — one full-pipeline price regression project. The overview below
+        states the research questions, the approach, the key findings and the limitations; the
+        module cards that follow are the implementation walkthrough behind them. All prices and
+        charges are reported in USD. Click any chart to view the full-resolution image.
       </p>
+
+      <!-- Project Overview -->
+      <article class="project-card">
+        <div class="project-head">
+          <h3>Project Overview — Price Regression Full Pipeline</h3>
+          <span class="status">✓ Completed</span>
+        </div>
+        <div class="project-body">
+          <p class="mod-desc">One assignment, four price questions, one pipeline: can a regression model predict a price from an object's own specifications, and where does that model stop working? The module cards below are the implementation walkthrough behind this overview.</p>
+
+          <p class="mod-note"><b>Research Questions</b></p>
+          <ul class="fact-list">
+            <li><b>RQ1 — Car price:</b> can we predict the price of a car (USD) from its technical specifications (engine size, horsepower, fuel type, body style)?</li>
+            <li><b>RQ2 — Laptop price:</b> can we predict the price of a laptop (USD) from its hardware attributes (CPU frequency, screen size, RAM, storage, GPU)?</li>
+            <li><b>RQ3 — House price (King County, USD):</b> which features (sqft living area, waterfront, floors) drive house prices, and can a regression pipeline predict them?</li>
+            <li><b>RQ4 — Medical insurance cost (USD):</b> how do BMI, smoker status, age and other factors affect individual medical charges?</li>
+          </ul>
+
+          <p class="mod-note"><b>Approach</b></p>
+          <p class="mod-desc">Every question runs through the same six stages — data import, cleaning, EDA, model development, cross-validation and tuning — with pandas, numpy, matplotlib, seaborn and scikit-learn in Jupyter. Cleaning converts "?" placeholders to missing values and applies drop, mean or mode imputation before dummy encoding (pd.get_dummies) and binning (pd.cut); EDA uses correlation matrices and heatmaps, scatter and box plots, pivot tables and Pearson coefficients; modelling moves from simple to multiple to polynomial regression (degrees 1–11) inside scikit-learn pipelines, scored with R-squared; validation adds train/test splits, k-fold cross-validation, cross_val_predict, Ridge regression and GridSearchCV over the alpha grid.</p>
+
+          <p class="mod-note"><b>Key Findings</b></p>
+          <ul class="fact-list">
+            <li><b>More polynomial degree is not more accuracy.</b> On the Auto data a degree-5 model reaches training R-squared 0.557 while test R-squared falls to −29.87; 4-fold cross-validation returns 0.522 ± 0.291, and that spread is the instability itself.</li>
+            <li><b>Regularisation repairs an over-flexible model.</b> Ridge with a GridSearchCV-tuned alpha (10,000 on Auto, 10 on Laptops) restores validation R-squared to 0.564 and 0.423, trading training fit for a test score that no longer collapses.</li>
+            <li><b>Feature coverage matters more than model family.</b> King County house prices (USD) climb from R-squared 0.493 on sqft_living alone to 0.658 with multiple features and 0.751 through the full pipeline; insurance charges (USD) reach 0.845 with all features against 0.622 for smoker status alone.</li>
+          </ul>
+
+          <p class="mod-note"><b>Limitations</b></p>
+          <ul class="fact-list">
+            <li>Course assignment: the models demonstrate the full pipeline rather than target production deployment.</li>
+            <li>Some datasets contain "?" placeholders that are imputed or dropped, so results depend on those preprocessing choices.</li>
+            <li>A few notebooks download their datasets from external URLs and need network access to run end to end.</li>
+            <li>No external or held-out temporal validation beyond the provided train/test splits.</li>
+          </ul>
+
+          <p class="mod-note"><b>Datasets:</b> UCI Automobile and Laptops Pricing, Kaggle King County House Sales and Medical Insurance Cost — used for educational purposes only.</p>
+          <p class="mod-note"><b>Status:</b> Completed · CISC7204 Machine Learning · November 2026 · <a href="https://github.com/FongHioLam-mc654953/data-science-project" target="_blank" rel="noopener">source repository</a></p>
+        </div>
+      </article>
 
       <!-- Module 01 -->
       <article class="project-card">
@@ -95,17 +136,17 @@
           <span class="status">✓ Completed</span>
         </div>
         <div class="project-body">
-          <p class="mod-desc">Load and inspect the car (Auto) and laptop price datasets, checking shape, dtypes and missing values.</p>
+          <p class="mod-desc">Load and inspect the car (Auto) and laptop price datasets, both in USD, checking shape, dtypes and missing values.</p>
           <p class="mod-note"><b>Notebooks:</b> <a href="https://github.com/FongHioLam-mc654953/data-science-project/blob/main/Module%2001/Module01_Lab01_Data_Import_Auto.ipynb" target="_blank" rel="noopener">Module01_Lab01_Data_Import_Auto.ipynb</a> · <a href="https://github.com/FongHioLam-mc654953/data-science-project/blob/main/Module%2001/Module01_Lab02_Data_Import_Laptops.ipynb" target="_blank" rel="noopener">Module01_Lab02_Data_Import_Laptops.ipynb</a></p>
           <p class="mod-note"><b>Data:</b> <a href="https://github.com/FongHioLam-mc654953/data-science-project/blob/main/Module%2001/auto.csv" target="_blank" rel="noopener">auto.csv</a> · <a href="https://github.com/FongHioLam-mc654953/data-science-project/blob/main/Module%2001/laptops.csv" target="_blank" rel="noopener">laptops.csv</a> (UCI Automobile &amp; Laptops)</p>
           <div class="gallery">
             <figure>
               <a href="images/module01_basic_insights.png" target="_blank" rel="noopener"><img src="images/module01_basic_insights.png" alt="Module 01 Basic Insights" loading="lazy" /></a>
-              <figcaption>Basic insights — first look at the data</figcaption>
+              <figcaption>Both price datasets load correctly — columns keep their expected types, and "?" marks exactly the values the cleaning stage has to handle</figcaption>
             </figure>
             <figure>
               <a href="images/module01_summary_statistics.png" target="_blank" rel="noopener"><img src="images/module01_summary_statistics.png" alt="Module 01 Summary Statistics" loading="lazy" /></a>
-              <figcaption>Summary statistics overview</figcaption>
+              <figcaption>Summary statistics — price, horsepower and engine size span wide ranges, which sets the scaling and outlier policy for every later model</figcaption>
             </figure>
           </div>
         </div>
@@ -124,11 +165,11 @@
           <div class="gallery">
             <figure>
               <a href="images/module02_horsepower_histogram.png" target="_blank" rel="noopener"><img src="images/module02_horsepower_histogram.png" alt="Module 02 Horsepower Histogram" loading="lazy" /></a>
-              <figcaption>Horsepower distribution histogram</figcaption>
+              <figcaption>Horsepower is right-skewed — a few high-power cars stretch the upper tail, so the mean sits above the median</figcaption>
             </figure>
             <figure>
               <a href="images/module02_price_bins.png" target="_blank" rel="noopener"><img src="images/module02_price_bins.png" alt="Module 02 Price Bins" loading="lazy" /></a>
-              <figcaption>Price bins after cleaning</figcaption>
+              <figcaption>Price bins after cleaning — most vehicles fall in the lower buckets, confirming a right-skewed target that regression must not treat as symmetric</figcaption>
             </figure>
           </div>
         </div>
@@ -147,11 +188,11 @@
           <div class="gallery">
             <figure>
               <a href="images/module03_correlation_matrix.png" target="_blank" rel="noopener"><img src="images/module03_correlation_matrix.png" alt="Module 03 Correlation Matrix" loading="lazy" /></a>
-              <figcaption>Feature correlation matrix</figcaption>
+              <figcaption>Engine size, curb weight and horsepower move together and all three correlate with price — useful signal, but also a multicollinearity risk for linear models</figcaption>
             </figure>
             <figure>
               <a href="images/module03_scatter_enginesize_vs_price.png" target="_blank" rel="noopener"><img src="images/module03_scatter_enginesize_vs_price.png" alt="Module 03 Engine Size vs Price" loading="lazy" /></a>
-              <figcaption>Engine size vs price scatter</figcaption>
+              <figcaption>Engine size alone explains part of the price trend, yet the spread is wide — a single feature cannot carry the prediction</figcaption>
             </figure>
           </div>
         </div>
@@ -164,17 +205,17 @@
           <span class="status">✓ Completed</span>
         </div>
         <div class="project-body">
-          <p class="mod-desc">Build simple, multiple and polynomial linear regression models and compare their performance.</p>
+          <p class="mod-desc">Build simple, multiple and polynomial linear regression models on USD price targets and compare their performance.</p>
           <p class="mod-note"><b>Notebooks:</b> <a href="https://github.com/FongHioLam-mc654953/data-science-project/blob/main/Module%2004/Module04_Lab01_Model_Development_UsedCars.ipynb" target="_blank" rel="noopener">Module04_Lab01_Model_Development_UsedCars.ipynb</a> · <a href="https://github.com/FongHioLam-mc654953/data-science-project/blob/main/Module%2004/Module04_Lab02_Model_Development_Laptops.ipynb" target="_blank" rel="noopener">Module04_Lab02_Model_Development_Laptops.ipynb</a></p>
           <p class="mod-note"><b>Data:</b> <a href="https://github.com/FongHioLam-mc654953/data-science-project/blob/main/Module%2004/usedcars.csv" target="_blank" rel="noopener">usedcars.csv</a> · <a href="https://github.com/FongHioLam-mc654953/data-science-project/blob/main/Module%2004/laptops.csv" target="_blank" rel="noopener">laptops.csv</a> (engineered features)</p>
           <div class="gallery">
             <figure>
               <a href="images/module04_compare_models.png" target="_blank" rel="noopener"><img src="images/module04_compare_models.png" alt="Module 04 Model Comparison" loading="lazy" /></a>
-              <figcaption>Simple vs polynomial regression comparison</figcaption>
+              <figcaption>Higher-degree polynomials cut training error while the fitted curve starts chasing individual points instead of the trend</figcaption>
             </figure>
             <figure>
               <a href="images/module04_regression_highway_mpg.png" target="_blank" rel="noopener"><img src="images/module04_regression_highway_mpg.png" alt="Module 04 Regression Highway MPG" loading="lazy" /></a>
-              <figcaption>Regression fit on highway MPG</figcaption>
+              <figcaption>Highway MPG falls as price rises — fuel-efficient cars sit in the cheaper segment, so MPG carries real signal about price</figcaption>
             </figure>
           </div>
         </div>
@@ -187,17 +228,22 @@
           <span class="status">✓ Completed</span>
         </div>
         <div class="project-body">
-          <p class="mod-desc">Detect overfitting with k-fold cross-validation, stabilise high-degree polynomials with Ridge, and tune hyper-parameters via GridSearchCV. <b>Auto dataset:</b> 4-fold CV mean R² 0.522 (±0.291); degree-5 polynomial overfits hard (train R² 0.557 vs test R² −29.87); Ridge tuned validation R² 0.564 (train 0.859); GridSearchCV picks α = 10000. <b>Laptops dataset:</b> single-feature CPU_frequency CV R² 0.127; 1–5 order polynomial test R² drops 0.053 → −1.376; Ridge validation R² 0.423; GridSearchCV best α = 10.</p>
+          <p class="mod-desc">Detect overfitting with k-fold cross-validation, stabilise high-degree polynomials with Ridge, and tune hyper-parameters via GridSearchCV. All price targets are in USD.</p>
+          <ul class="fact-list">
+            <li><b>Auto — cross-validation:</b> 4-fold CV mean R-squared 0.522 (±0.291). A spread of ±0.291 around a mean of 0.522 means the folds disagree strongly — the model is highly unstable, and a single train/test split would have hidden that.</li>
+            <li><b>Auto — the overfitting result:</b> a degree-5 polynomial lifts training R-squared to 0.557 while test R-squared falls to −29.87. A negative R-squared means the model performs worse than simply predicting the mean, which is precisely the evidence of overfitting rather than a numerical bug.</li>
+            <li><b>Auto and Laptops — Ridge and tuning:</b> Ridge with an alpha chosen by GridSearchCV (10,000 on Auto, 10 on Laptops) brings validation R-squared to 0.564 on Auto (train 0.859) and 0.423 on Laptops, where a single-feature CPU_frequency baseline scores CV R-squared 0.127 and 1–5 order polynomial test R-squared slides from 0.053 to −1.376.</li>
+          </ul>
           <p class="mod-note"><b>Notebooks:</b> <a href="https://github.com/FongHioLam-mc654953/data-science-project/blob/main/Module%2005/Module05_Lab01_CrossValidation_Ridge_Auto.ipynb" target="_blank" rel="noopener">Module05_Lab01_CrossValidation_Ridge_Auto.ipynb</a> · <a href="https://github.com/FongHioLam-mc654953/data-science-project/blob/main/Module%2005/Module05_Lab02_CrossValidation_Ridge_Laptops.ipynb" target="_blank" rel="noopener">Module05_Lab02_CrossValidation_Ridge_Laptops.ipynb</a></p>
           <p class="mod-note"><b>Data:</b> <a href="https://github.com/FongHioLam-mc654953/data-science-project/blob/main/Module%2005/module_5_auto.csv" target="_blank" rel="noopener">module_5_auto.csv</a> · <a href="https://github.com/FongHioLam-mc654953/data-science-project/blob/main/Module%2005/laptops.csv" target="_blank" rel="noopener">laptops.csv</a> (polynomial features)</p>
           <div class="gallery">
             <figure>
               <a href="images/module05_r2_across_polynomial_orders.png" target="_blank" rel="noopener"><img src="images/module05_r2_across_polynomial_orders.png" alt="Module 05 R2 Across Polynomial Orders" loading="lazy" /></a>
-              <figcaption>R² across polynomial orders</figcaption>
+              <figcaption>Training R-squared keeps climbing with polynomial order while test R-squared stops improving — the widening gap is where generalisation is lost</figcaption>
             </figure>
             <figure>
               <a href="images/module05_overfitting_scores.png" target="_blank" rel="noopener"><img src="images/module05_overfitting_scores.png" alt="Module 05 Overfitting Scores" loading="lazy" /></a>
-              <figcaption>Cross-validation overfitting scores</figcaption>
+              <figcaption>Test R-squared turns negative beyond degree 3 — the polynomial memorises the training set instead of learning the trend</figcaption>
             </figure>
           </div>
         </div>
@@ -210,17 +256,17 @@
           <span class="status">✓ Completed</span>
         </div>
         <div class="project-body">
-          <p class="mod-desc">Final project and practice: predict King County house prices and medical insurance charges. <b>House pricing:</b> sqft_living linear regression R² 0.493 → multiple features R² 0.658 → full pipeline R² 0.751; Ridge (α=0.1) R² 0.6479; 2nd-order polynomial + Ridge R² 0.700. <b>Insurance cost:</b> smoker-only R² 0.622 → all features R² 0.750 → pipeline R² 0.845; Ridge (α=0.1) test R² 0.676; 2nd-order polynomial Ridge test R² 0.784.</p>
+          <p class="mod-desc">Final project and practice: predict King County house prices and medical insurance charges, both in USD. <b>House pricing:</b> sqft_living linear regression R² 0.493 → multiple features R² 0.658 → full pipeline R² 0.751; Ridge (α = 0.1) R² 0.648; 2nd-order polynomial + Ridge R² 0.700. <b>Insurance cost:</b> smoker-only R² 0.622 → all features R² 0.750 → pipeline R² 0.845; Ridge (α = 0.1) test R² 0.676; 2nd-order polynomial Ridge test R² 0.784.</p>
           <p class="mod-note"><b>Notebooks:</b> <a href="https://github.com/FongHioLam-mc654953/data-science-project/blob/main/Module%2006/Module06_FinalProject_HousePricing.ipynb" target="_blank" rel="noopener">Module06_FinalProject_HousePricing.ipynb</a> · <a href="https://github.com/FongHioLam-mc654953/data-science-project/blob/main/Module%2006/Module06_PracticeProject_InsuranceCost.ipynb" target="_blank" rel="noopener">Module06_PracticeProject_InsuranceCost.ipynb</a></p>
           <p class="mod-note"><b>Data:</b> <a href="https://github.com/FongHioLam-mc654953/data-science-project/blob/main/Module%2006/kc_house_data_NaN.csv" target="_blank" rel="noopener">kc_house_data_NaN.csv</a> · <a href="https://github.com/FongHioLam-mc654953/data-science-project/blob/main/Module%2006/medical_insurance_dataset.csv" target="_blank" rel="noopener">medical_insurance_dataset.csv</a> (Kaggle King County House &amp; Medical Insurance)</p>
           <div class="gallery">
             <figure>
               <a href="images/module06_price_vs_sqft_correlations.png" target="_blank" rel="noopener"><img src="images/module06_price_vs_sqft_correlations.png" alt="Module 06 Price vs Sqft Correlations" loading="lazy" /></a>
-              <figcaption>House price vs sqft living area &amp; correlations</figcaption>
+              <figcaption>Living area is the strongest single price driver — sqft_living alone already reaches R-squared 0.493 on King County prices (USD)</figcaption>
             </figure>
             <figure>
               <a href="images/module06_bmi_smoker_effects.png" target="_blank" rel="noopener"><img src="images/module06_bmi_smoker_effects.png" alt="Module 06 BMI Smoker Effects" loading="lazy" /></a>
-              <figcaption>BMI &amp; smoker effects on insurance charges</figcaption>
+              <figcaption>Smokers pay more at every BMI level — smoker status alone explains charges to R-squared 0.622 (USD)</figcaption>
             </figure>
           </div>
         </div>
@@ -234,16 +280,17 @@
         </div>
         <div class="project-body">
           <p class="mod-desc">Analyse Macau public bus supply and demand using a paired project dataset — verifying the research question with SQLite queries and visualisations.</p>
+          <p class="mod-note"><b>Attribution:</b> pair project — the proposal and the verification analysis were designed and delivered jointly with a fellow CISC7204 student. Student identifiers are removed from the public repository.</p>
           <p class="mod-note"><b>Notebook:</b> <a href="https://github.com/FongHioLam-mc654953/data-science-project/blob/main/PreliminaryProject_Pair/PreliminaryProject_ProposalVerification.ipynb" target="_blank" rel="noopener">PreliminaryProject_ProposalVerification.ipynb</a></p>
           <p class="mod-note"><b>Data:</b> <a href="https://github.com/FongHioLam-mc654953/data-science-project/tree/main/PreliminaryProject_Pair" target="_blank" rel="noopener">PreliminaryProject_Pair folder</a> (SQLite · CSV)</p>
           <div class="gallery">
             <figure>
               <a href="images/bus_fig1_supply_demand_match.png" target="_blank" rel="noopener"><img src="images/bus_fig1_supply_demand_match.png" alt="Bus Supply Demand Match" loading="lazy" /></a>
-              <figcaption>Research question — supply &amp; demand match</figcaption>
+              <figcaption>Supply and demand are unevenly matched across districts — the gap marks where service falls short</figcaption>
             </figure>
             <figure>
               <a href="images/bus_fig2_district_event_shuttle.png" target="_blank" rel="noopener"><img src="images/bus_fig2_district_event_shuttle.png" alt="Bus District Event Shuttle" loading="lazy" /></a>
-              <figcaption>District event shuttle analysis</figcaption>
+              <figcaption>Event days pull demand toward specific districts, so shuttle capacity should follow the event calendar</figcaption>
             </figure>
           </div>
         </div>
