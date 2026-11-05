@@ -71,7 +71,7 @@ The reviewer's overall judgement was that the craft is good and that the gap is 
 | 4.1 | Generated metadata front matter rendered as a visible table at the top of the repository page | Deleted the metadata header block from both `index.md` and `README.md`; both files now begin with their H1 heading |
 | 4.2 | Duplicated AI disclaimer line | Deleted all three occurrences (two at the end of `index.md`, one at the end of `README.md`); no disclaimer line remains in any file |
 | 4.3 | Meta description promised NLP and deep learning with no such project on the page | Rewrote the meta description to describe the work that actually exists: price regression on car, laptop, house-price and medical-insurance data, with cross-validation, Ridge regression and GridSearchCV |
-| 4.4 | Contact address uses five digits (mc65495) while the GitHub handle uses six (mc654953) | Not actioned — the correct student ID digit has to be confirmed before a public contact address is changed; flagged as open |
+| 4.4 | Contact address uses five digits (mc65495) while the GitHub handle uses six (mc654953) | Closed as not a defect — both identifiers were confirmed correct: `mc65495` is the university mail account and `mc654953` is the full student ID carried in the GitHub handle. The difference in digit count is intentional, so no contact address was changed |
 | 4.5 | Number formatting drifts in Module 06 | Normalised to three decimal places throughout (0.6479 → 0.648), in `index.md` and `index.html` |
 
 ### 2.5 Reviewer's strongest single recommendation
@@ -99,6 +99,7 @@ Action taken: adopted. The Projects section now opens with a **Project Overview*
 | 11 | Added pair-project attribution to the Preliminary Project | 3.7 | `index.html`, `index.md` | `63cb59c` |
 | 12 | Added dataset provenance for the four datasets | 3.4 | `index.html` | `63cb59c` |
 | 13 | Created this feedback and change-log file and linked it from the repository README and the portfolio index | 3.1 | `PEER_FEEDBACK.md`, `README.md`, `index.md` | `63cb59c` |
+| 14 | Removed the generated metadata block and disclaimer text that had leaked into this file, and closed the identifier question | 4.1, 4.2, 4.4 | `PEER_FEEDBACK.md` | `PENDING_SHA` |
 
 ### 3.1 Deferred and open items
 
@@ -108,7 +109,7 @@ Action taken: adopted. The Projects section now opens with a **Project Overview*
 | 2.5 — gallery thumbnails about 500 px wide | Requires a layout change (promoting the overfitting chart to full width above a smaller gallery). Deferred so that the structural content fixes could be reviewed first. |
 | 3.5 — top navigation | Requires new markup and responsive styling; deferred to the same layout pass as 2.5. |
 | 3.8 — CV / LinkedIn link | No CV document or public profile URL is available to link yet. |
-| 4.4 — contact address vs GitHub handle | Open question: one of the two identifiers has a missing or extra digit. The correct student ID must be confirmed before a public contact address is changed. |
+| 4.4 — contact address vs GitHub handle | **Closed, no action needed.** Both values were confirmed correct by the student: the five-digit form is the university mail account and the six-digit form is the student ID used in the GitHub handle. The mismatch reported in the review is by design rather than a typo. |
 
 ---
 
@@ -116,6 +117,6 @@ Action taken: adopted. The Projects section now opens with a **Project Overview*
 
 The review was accurate on every point I could verify: the analysis was already sound, but the portfolio presented it as a sequence of stages and left the research question, the interpretation of the numbers and the limitations off the page entirely. The changes recorded above address the narrative gap — the site now opens with the question, the approach, three interpreted findings and four limitations, and every chart caption states what the chart shows rather than what it plots. The metadata and disclaimer defects are gone.
 
-The remaining work is concentrated in one place: the notebook figures themselves (deferred items 2.1–2.4 and 2.7) and the page layout that presents them (2.5, 3.5). Both will be handled in the next revision, and the contact-address question (4.4) needs one confirmation before it can be closed.
+The remaining work is concentrated in one place: the notebook figures themselves (deferred items 2.1–2.4 and 2.7) and the page layout that presents them (2.5, 3.5). Both will be handled in the next revision. The contact-address item (4.4) is now closed: both identifiers were confirmed correct, so nothing needed changing.
 
 I thank the reviewer for a review that was specific enough to act on: every item above could be mapped to a concrete edit and a commit.
