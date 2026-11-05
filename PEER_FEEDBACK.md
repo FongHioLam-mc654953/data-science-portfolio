@@ -1,4 +1,4 @@
-﻿# Peer Review Feedback and Change Log
+# Peer Review Feedback and Change Log
 
 | Field | Value |
 | --- | --- |
