@@ -86,19 +86,19 @@ Action taken: adopted. The Projects section now opens with a **Project Overview*
 
 | # | Change | Feedback item | Files | Commit |
 | --- | --- | --- | --- | --- |
-| 1 | Deleted generated metadata header block and all duplicated disclaimer lines | 4.1, 4.2 | `index.md`, `README.md` | [COMMIT_SHA] |
-| 2 | Added Research Questions, Approach, Key Findings and Limitations sections | 1.1, 1.6, 3.2, 3.3 | `index.md` | [COMMIT_SHA] |
-| 3 | Added the Project Overview card at the top of `#projects` | 1.1, 1.6, 3.2, 3.3 | `index.html` | [COMMIT_SHA] |
-| 4 | Split the Module 05 dense paragraph into three interpreted bullets | 1.2, 1.3, 1.4 | `index.html`, `index.md` | [COMMIT_SHA] |
-| 5 | Added explanatory sentences for the ±0.291 CV spread and for the negative test R-squared | 1.3, 1.4 | `index.html`, `index.md` | [COMMIT_SHA] |
-| 6 | Rewrote all fourteen chart captions as takeaway statements | 2.6 | `index.html` | [COMMIT_SHA] |
-| 7 | Normalised Module 06 metrics to three decimal places | 4.5 | `index.html`, `index.md` | [COMMIT_SHA] |
-| 8 | Stated USD for every price target and insurance charge | 1.5 | `index.html`, `index.md` | [COMMIT_SHA] |
-| 9 | Rewrote the meta description to match the projects actually shown | 4.3 | `index.html` | [COMMIT_SHA] |
-| 10 | Added course and date context (CISC7204, November 2026) | 3.6 | `index.html`, `index.md` | [COMMIT_SHA] |
-| 11 | Added pair-project attribution to the Preliminary Project | 3.7 | `index.html`, `index.md` | [COMMIT_SHA] |
-| 12 | Added dataset provenance for the four datasets | 3.4 | `index.html` | [COMMIT_SHA] |
-| 13 | Created this feedback and change-log file and linked it from the repository README and the portfolio index | 3.1 | `PEER_FEEDBACK.md`, `README.md`, `index.md` | [COMMIT_SHA] |
+| 1 | Deleted generated metadata header block and all duplicated disclaimer lines | 4.1, 4.2 | `index.md`, `README.md` | `63cb59c` |
+| 2 | Added Research Questions, Approach, Key Findings and Limitations sections | 1.1, 1.6, 3.2, 3.3 | `index.md` | `63cb59c` |
+| 3 | Added the Project Overview card at the top of `#projects` | 1.1, 1.6, 3.2, 3.3 | `index.html` | `63cb59c` |
+| 4 | Split the Module 05 dense paragraph into three interpreted bullets | 1.2, 1.3, 1.4 | `index.html`, `index.md` | `63cb59c` |
+| 5 | Added explanatory sentences for the ±0.291 CV spread and for the negative test R-squared | 1.3, 1.4 | `index.html`, `index.md` | `63cb59c` |
+| 6 | Rewrote all fourteen chart captions as takeaway statements | 2.6 | `index.html` | `63cb59c` |
+| 7 | Normalised Module 06 metrics to three decimal places | 4.5 | `index.html`, `index.md` | `63cb59c` |
+| 8 | Stated USD for every price target and insurance charge | 1.5 | `index.html`, `index.md` | `63cb59c` |
+| 9 | Rewrote the meta description to match the projects actually shown | 4.3 | `index.html` | `63cb59c` |
+| 10 | Added course and date context (CISC7204, November 2026) | 3.6 | `index.html`, `index.md` | `63cb59c` |
+| 11 | Added pair-project attribution to the Preliminary Project | 3.7 | `index.html`, `index.md` | `63cb59c` |
+| 12 | Added dataset provenance for the four datasets | 3.4 | `index.html` | `63cb59c` |
+| 13 | Created this feedback and change-log file and linked it from the repository README and the portfolio index | 3.1 | `PEER_FEEDBACK.md`, `README.md`, `index.md` | `63cb59c` |
 
 ### 3.1 Deferred and open items
 
