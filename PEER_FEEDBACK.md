@@ -43,13 +43,13 @@ The reviewer's overall judgement was that the craft is good and that the gap is 
 
 | # | Issue raised | Evidence given | Action taken |
 | --- | --- | --- | --- |
-| 2.1 | Two charts carry the identical in-figure title | `plt.title('R^2 Using Test Data')` is used for both the polynomial-order chart and the overfitting chart | Not actioned — the title lives inside the exported PNG, so it requires re-running the notebook and regenerating the figure; recorded below as deferred |
-| 2.2 | Axis label written as `R^2` and does not say train vs test | `plt.ylabel('R^2')` while the caption states blue = validation, red = training | Not actioned — same reason (in-figure axis label) |
-| 2.3 | Alpha chart has no log scale, compressing the informative region | Alpha grid spans eight orders of magnitude; no `set_xscale` in the notebook | Not actioned — same reason |
-| 2.4 | Duplicate value in the alpha grid | `100000` appears twice in `parameters1` | Not actioned — notebook-level code cleanup, tracked as deferred |
+| 2.1 | Two charts carry the identical in-figure title | `plt.title('R^2 Using Test Data')` is used for both the polynomial-order chart and the overfitting chart | **Fixed.** Each figure now carries its own title — "Auto: extra polynomial degrees stop buying test accuracy", "Auto: training and validation R² across eight orders of alpha", "Laptops: test R² collapses from degree 2 onward", "King County: sale price against above-ground living area". The duplicated overfitting chart was dropped from the gallery and replaced with the alpha-sweep chart |
+| 2.2 | Axis label written as `R^2` and does not say train vs test | `plt.ylabel('R^2')` while the caption states blue = validation, red = training | **Fixed.** Every R² axis now reads `R² (coefficient of determination)`, the training, test and validation series are each named in an in-figure legend, and the same wording is used in the notebooks and the page captions |
+| 2.3 | Alpha chart has no log scale, compressing the informative region | Alpha grid spans eight orders of magnitude; no `set_xscale` in the notebook | **Fixed.** The notebook now builds `Alpha = np.logspace(-3, 5, 161)` and the figure uses `ax.set_xscale('log')`; the axis label states the log scale and the range, and the GridSearchCV pick (alpha = 10 000) is drawn as a labelled dashed line |
+| 2.4 | Duplicate value in the alpha grid | `100000` appears twice in `parameters1` | **Fixed.** `parameters1` and `parameters2` now both read `[0.001, 0.1, 1, 10, 100, 1000, 10000, 100000]`, and the logged `GridSearchCV` representation in the notebook was regenerated to match |
 | 2.5 | Gallery thumbnails are unreadable | Two-column grid inside a 1080 px container gives roughly 500 px per chart | Not actioned — requires a layout change to promote one chart to full width |
-| 2.6 | Captions are labels, not takeaways | "R-squared across polynomial orders", "Cross-validation overfitting scores" | Rewrote all fourteen `<figcaption>` elements as conclusions, e.g. "Test R-squared turns negative beyond degree 3 — the polynomial memorises the training set instead of learning the trend" |
-| 2.7 | Inconsistent in-figure titles | The Module 06 price-vs-sqft chart has no in-figure title while other charts do | Not actioned — in-figure title issue, deferred with 2.1–2.4 |
+| 2.6 | Captions are labels, not takeaways | "R-squared across polynomial orders", "Cross-validation overfitting scores" | Rewrote all `<figcaption>` elements as conclusions, e.g. "Auto: test R² peaks at degree 2 (0.741) then slides to 0.631 by degree 4"; the two captions that described the redrawn Module 05 and Module 06 charts were rewritten again to match the regenerated figures |
+| 2.7 | Inconsistent in-figure titles | The Module 06 price-vs-sqft chart has no in-figure title while other charts do | **Fixed.** Both Module 06 charts now carry an in-figure title and unit-bearing axis labels: "King County: sale price against above-ground living area" (square feet vs USD) and "Insurance: charges against BMI, before the smoker split" (kg/m² vs USD) |
 
 ### 2.3 Structure — missing sections
 
@@ -100,13 +100,15 @@ Action taken: adopted. The Projects section now opens with a **Project Overview*
 | 12 | Added dataset provenance for the four datasets | 3.4 | `index.html` | `63cb59c` |
 | 13 | Created this feedback and change-log file and linked it from the repository README and the portfolio index | 3.1 | `PEER_FEEDBACK.md`, `README.md`, `index.md` | `63cb59c` |
 | 14 | Removed the generated metadata block and disclaimer text that had leaked into this file, and closed the identifier question | 4.1, 4.2, 4.4 | `PEER_FEEDBACK.md` | `28b051c` |
+| 15 | Re-ran the Module 05 and Module 06 figures with per-figure titles, R² axis labels that name the series, a log alpha axis, no duplicated alpha value and in-figure titles on the Module 06 charts, then re-exported the PNGs into `images/` | 2.1, 2.2, 2.3, 2.4, 2.7 | `Module 05/Module05_Lab01_*.ipynb`, `Module 05/Module05_Lab02_*.ipynb`, `Module 06/Module06_*.ipynb`, `images/*.png` | `782a9a7` (notebooks), `80b6e14` (images) |
+| 16 | Replaced the duplicated overfitting chart in the Module 05 gallery with the alpha-sweep chart and rewrote the two Module 06 captions so they describe the redrawn charts | 2.1, 2.6 | `index.html` | `80b6e14` |
 
 ### 3.1 Deferred and open items
 
 | Item | Reason |
 | --- | --- |
-| 2.1, 2.2, 2.3, 2.4, 2.7 — in-figure titles, axis labels, log scale, duplicate alpha, missing title | These are properties of the exported PNGs, not of the page. Fixing them means editing and re-running the Module 05 and Module 06 notebooks, regenerating the figures and re-exporting them into `images/`. Tracked as the next piece of work rather than rushed into this content revision. |
-| 2.5 — gallery thumbnails about 500 px wide | Requires a layout change (promoting the overfitting chart to full width above a smaller gallery). Deferred so that the structural content fixes could be reviewed first. |
+| 2.1, 2.2, 2.3, 2.4, 2.7 — in-figure titles, axis labels, log scale, duplicate alpha, missing title | **Closed.** The four notebooks were edited, their figures re-rendered and the exported PNGs in `images/` replaced; the gallery and the captions were updated in the same change. |
+| 2.5 — gallery thumbnails about 500 px wide | Requires a layout change (promoting the alpha-sweep chart to full width above a smaller gallery). Deferred so that the content and figure fixes could be reviewed first. |
 | 3.5 — top navigation | Requires new markup and responsive styling; deferred to the same layout pass as 2.5. |
 | 3.8 — CV / LinkedIn link | No CV document or public profile URL is available to link yet. |
 | 4.4 — contact address vs GitHub handle | **Closed, no action needed.** Both values were confirmed correct by the student: the five-digit form is the university mail account and the six-digit form is the student ID used in the GitHub handle. The mismatch reported in the review is by design rather than a typo. |
@@ -117,6 +119,6 @@ Action taken: adopted. The Projects section now opens with a **Project Overview*
 
 The review was accurate on every point I could verify: the analysis was already sound, but the portfolio presented it as a sequence of stages and left the research question, the interpretation of the numbers and the limitations off the page entirely. The changes recorded above address the narrative gap — the site now opens with the question, the approach, three interpreted findings and four limitations, and every chart caption states what the chart shows rather than what it plots. The metadata and disclaimer defects are gone.
 
-The remaining work is concentrated in one place: the notebook figures themselves (deferred items 2.1–2.4 and 2.7) and the page layout that presents them (2.5, 3.5). Both will be handled in the next revision. The contact-address item (4.4) is now closed: both identifiers were confirmed correct, so nothing needed changing.
+The notebook figures were rebuilt in the second pass: the four notebooks now name every series, title every chart, plot the alpha sweep on a log axis and carry a de-duplicated hyperparameter grid, and the exported PNGs in `images/` were regenerated from those runs. The duplicated overfitting chart is gone, so no two figures can be mistaken for one another any more. What is left is presentational only — the gallery layout (2.5) and the top navigation (3.5) — plus the optional CV and LinkedIn links (3.8). The contact-address item (4.4) is closed: both identifiers were confirmed correct, so nothing needed changing.
 
 I thank the reviewer for a review that was specific enough to act on: every item above could be mapped to a concrete edit and a commit.

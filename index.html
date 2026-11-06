@@ -238,12 +238,16 @@
           <p class="mod-note"><b>Data:</b> <a href="https://github.com/FongHioLam-mc654953/data-science-project/blob/main/Module%2005/module_5_auto.csv" target="_blank" rel="noopener">module_5_auto.csv</a> · <a href="https://github.com/FongHioLam-mc654953/data-science-project/blob/main/Module%2005/laptops.csv" target="_blank" rel="noopener">laptops.csv</a> (polynomial features)</p>
           <div class="gallery">
             <figure>
-              <a href="images/module05_r2_across_polynomial_orders.png" target="_blank" rel="noopener"><img src="images/module05_r2_across_polynomial_orders.png" alt="Module 05 R2 Across Polynomial Orders" loading="lazy" /></a>
-              <figcaption>Training R-squared keeps climbing with polynomial order while test R-squared stops improving — the widening gap is where generalisation is lost</figcaption>
+              <a href="images/module05_r2_across_polynomial_orders.png" target="_blank" rel="noopener"><img src="images/module05_r2_across_polynomial_orders.png" alt="Auto: R-squared against polynomial degree, training versus test" loading="lazy" /></a>
+              <figcaption>Auto: test R² peaks at degree 2 (0.741) then slides to 0.631 by degree 4, while training R² stays flat near 0.53 — extra degrees add variance, not fit</figcaption>
             </figure>
             <figure>
-              <a href="images/module05_overfitting_scores.png" target="_blank" rel="noopener"><img src="images/module05_overfitting_scores.png" alt="Module 05 Overfitting Scores" loading="lazy" /></a>
-              <figcaption>Test R-squared turns negative beyond degree 3 — the polynomial memorises the training set instead of learning the trend</figcaption>
+              <a href="images/module05_ridge_alpha_train_vs_test.png" target="_blank" rel="noopener"><img src="images/module05_ridge_alpha_train_vs_test.png" alt="Auto: training versus validation R-squared against Ridge alpha on a log scale" loading="lazy" /></a>
+              <figcaption>Auto: over eight orders of alpha (log axis) training R² falls from 0.86 while validation R² flattens near 0.56 — the 4-fold GridSearchCV pick of 10 000 is marked where the gap is narrowest</figcaption>
+            </figure>
+            <figure>
+              <a href="images/module05_laptops_r2_by_degree.png" target="_blank" rel="noopener"><img src="images/module05_laptops_r2_by_degree.png" alt="Laptops: test R-squared against polynomial degree of CPU frequency" loading="lazy" /></a>
+              <figcaption>Laptops: on CPU_frequency alone test R² falls from 0.053 at degree 1 to −1.376 at degree 5 and crosses zero at degree 2 — any order above 1 is worse than predicting the mean</figcaption>
             </figure>
           </div>
         </div>
@@ -262,11 +266,11 @@
           <div class="gallery">
             <figure>
               <a href="images/module06_price_vs_sqft_correlations.png" target="_blank" rel="noopener"><img src="images/module06_price_vs_sqft_correlations.png" alt="Module 06 Price vs Sqft Correlations" loading="lazy" /></a>
-              <figcaption>Living area is the strongest single price driver — sqft_living alone already reaches R-squared 0.493 on King County prices (USD)</figcaption>
+              <figcaption>Above-ground area against price (21,613 sales, r ≈ 0.61): the fit tracks the middle of the market and under-predicts the most expensive homes</figcaption>
             </figure>
             <figure>
               <a href="images/module06_bmi_smoker_effects.png" target="_blank" rel="noopener"><img src="images/module06_bmi_smoker_effects.png" alt="Module 06 BMI Smoker Effects" loading="lazy" /></a>
-              <figcaption>Smokers pay more at every BMI level — smoker status alone explains charges to R-squared 0.622 (USD)</figcaption>
+              <figcaption>Charges against BMI before the smoker split: only a weak drift overall, and the wide vertical bands are smoker status — the effect (R-squared 0.622 on its own) that the practice model then separates out</figcaption>
             </figure>
           </div>
         </div>
