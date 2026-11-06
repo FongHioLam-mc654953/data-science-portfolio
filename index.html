@@ -10,8 +10,29 @@
 </head>
 <body>
 
+  <!-- ================= Section navigation ================= -->
+  <nav class="site-nav" id="site-nav" aria-label="Section navigation">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#top">FHL<span class="nav-brand-sub">Portfolio</span></a>
+      <div class="nav-scroll" id="nav-scroll">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#overview">Overview</a>
+        <a class="nav-link" href="#module-01">Module 01</a>
+        <a class="nav-link" href="#module-02">Module 02</a>
+        <a class="nav-link" href="#module-03">Module 03</a>
+        <a class="nav-link" href="#module-04">Module 04</a>
+        <a class="nav-link" href="#module-05">Module 05</a>
+        <a class="nav-link" href="#module-06">Module 06</a>
+        <a class="nav-link" href="#preliminary">Preliminary</a>
+        <a class="nav-link nav-link-ext" href="https://github.com/FongHioLam-mc654953/data-science-project" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </nav>
+
   <!-- ================= Hero ================= -->
-  <header class="hero">
+  <header class="hero" id="top">
     <div class="hero-inner">
       <img class="avatar" src="https://github.com/FongHioLam-mc654953.png" alt="FONG HIO LAM avatar" />
       <span class="badge">CISC7204 Machine Learning · November 2026</span>
@@ -90,7 +111,7 @@
       </p>
 
       <!-- Project Overview -->
-      <article class="project-card">
+      <article class="project-card" id="overview">
         <div class="project-head">
           <h3>Project Overview — Price Regression Full Pipeline</h3>
           <span class="status">✓ Completed</span>
@@ -130,7 +151,7 @@
       </article>
 
       <!-- Module 01 -->
-      <article class="project-card">
+      <article class="project-card" id="module-01">
         <div class="project-head">
           <h3>Module 01 — Data Import</h3>
           <span class="status">✓ Completed</span>
@@ -153,7 +174,7 @@
       </article>
 
       <!-- Module 02 -->
-      <article class="project-card">
+      <article class="project-card" id="module-02">
         <div class="project-head">
           <h3>Module 02 — Data Cleaning</h3>
           <span class="status">✓ Completed</span>
@@ -176,7 +197,7 @@
       </article>
 
       <!-- Module 03 -->
-      <article class="project-card">
+      <article class="project-card" id="module-03">
         <div class="project-head">
           <h3>Module 03 — Exploratory Data Analysis</h3>
           <span class="status">✓ Completed</span>
@@ -199,7 +220,7 @@
       </article>
 
       <!-- Module 04 -->
-      <article class="project-card">
+      <article class="project-card" id="module-04">
         <div class="project-head">
           <h3>Module 04 — Model Development</h3>
           <span class="status">✓ Completed</span>
@@ -222,7 +243,7 @@
       </article>
 
       <!-- Module 05 -->
-      <article class="project-card">
+      <article class="project-card" id="module-05">
         <div class="project-head">
           <h3>Module 05 — Cross-Validation · Ridge · Grid Search</h3>
           <span class="status">✓ Completed</span>
@@ -254,7 +275,7 @@
       </article>
 
       <!-- Module 06 -->
-      <article class="project-card">
+      <article class="project-card" id="module-06">
         <div class="project-head">
           <h3>Module 06 — House Pricing &amp; Insurance Cost</h3>
           <span class="status">✓ Completed</span>
@@ -277,7 +298,7 @@
       </article>
 
       <!-- Preliminary Project -->
-      <article class="project-card">
+      <article class="project-card" id="preliminary">
         <div class="project-head">
           <h3>Preliminary Project — Macau Bus Supply &amp; Demand</h3>
           <span class="status">✓ Completed</span>
@@ -321,6 +342,64 @@
       <p>© 2026 FONG HIO LAM · Built with ❤ for the data science portfolio</p>
     </div>
   </footer>
+
+  <script>
+    /* sticky section navigation: current-section highlight + keep the active link in view */
+    (function () {
+      var nav = document.getElementById('site-nav');
+      var scroller = document.getElementById('nav-scroll');
+      if (!nav) { return; }
+
+      var links = Array.prototype.slice.call(nav.querySelectorAll('.nav-link[href^="#"]'));
+      var entries = links.map(function (link) {
+        var id = link.getAttribute('href').slice(1);
+        var el = id ? document.getElementById(id) : null;
+        return el ? { link: link, el: el } : null;
+      }).filter(Boolean);
+
+      function syncNavHeight() {
+        document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+      }
+
+      function highlight() {
+        var probe = nav.offsetHeight + 24;
+        var current = null;
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].el.getBoundingClientRect().top <= probe) { current = entries[i]; }
+        }
+        for (var j = 0; j < links.length; j++) {
+          links[j].classList.remove('is-active');
+          links[j].removeAttribute('aria-current');
+        }
+        if (current) {
+          current.link.classList.add('is-active');
+          current.link.setAttribute('aria-current', 'true');
+          if (scroller && scroller.scrollWidth > scroller.clientWidth + 2) {
+            var box = scroller.getBoundingClientRect();
+            var bar = current.link.getBoundingClientRect();
+            if (bar.left < box.left) {
+              scroller.scrollLeft += (bar.left - box.left) - 12;
+            } else if (bar.right > box.right) {
+              scroller.scrollLeft += (bar.right - box.right) + 12;
+            }
+          }
+        }
+      }
+
+      var pending = false;
+      function onScroll() {
+        if (pending) { return; }
+        pending = true;
+        window.requestAnimationFrame(function () { pending = false; highlight(); });
+      }
+
+      syncNavHeight();
+      highlight();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', function () { syncNavHeight(); highlight(); });
+      window.addEventListener('load', function () { syncNavHeight(); highlight(); });
+    }());
+  </script>
 
 </body>
 </html>

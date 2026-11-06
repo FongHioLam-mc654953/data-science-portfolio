@@ -35,11 +35,24 @@
   --shadow: 0 12px 32px rgba(21, 101, 192, 0.12);
   --radius: 18px;
   --maxw: 1080px;
+  --nav-h: 56px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
+
+/* keep anchored headings clear of the sticky bar */
+section[id],
+article[id],
+header[id],
+nav[id] {
+  scroll-margin-top: calc(var(--nav-h) + 18px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
 
 body {
   font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -74,6 +87,115 @@ h2 {
   max-width: 720px;
   margin-bottom: 36px;
 }
+
+/* ---------- Sticky section navigation ---------- */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(255, 255, 255, 0.86);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
+  backdrop-filter: saturate(160%) blur(12px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 14px rgba(21, 101, 192, 0.08);
+}
+
+.nav-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-brand {
+  flex: 0 0 auto;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: var(--teal-700);
+  white-space: nowrap;
+}
+
+.nav-brand:hover { text-decoration: none; color: var(--sky-500); }
+
+.nav-brand-sub {
+  margin-left: 6px;
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+}
+
+/* horizontal scroller: never wraps, scrolls sideways on narrow screens */
+.nav-scroll {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 6px 2px;
+}
+
+.nav-scroll::-webkit-scrollbar { display: none; }
+
+.nav-link {
+  flex: 0 0 auto;
+  display: inline-block;
+  font-size: 0.79rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  padding: 5px 8px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.nav-link:hover {
+  text-decoration: none;
+  color: var(--teal-700);
+  background: var(--teal-50);
+}
+
+.nav-link.is-active {
+  color: #ffffff;
+  background: linear-gradient(90deg, var(--teal-500), var(--sky-500));
+  border-color: rgba(0, 137, 123, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 150, 136, 0.28);
+}
+
+.nav-link.is-active:hover { color: #ffffff; }
+
+.nav-link-ext { color: var(--teal-700); border-color: rgba(0, 137, 123, 0.3); }
+
+/* keep the whole link row inside the container on laptop widths */
+@media (max-width: 1200px) {
+  .nav-brand-sub { display: none; }
+}
+
+/* fade the right edge so a clipped link reads as "scrollable", not as truncated */
+@media (max-width: 860px) {
+  .nav-inner { position: relative; }
+  .nav-inner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 26px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.95));
+    pointer-events: none;
+  }
+}
+
 
 /* ---------- Hero: bright blue-green gradient ---------- */
 .hero {
@@ -271,18 +393,28 @@ h2 {
 
 /* ---------- Gallery: full-size images, clickable ---------- */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   margin: 18px 0 8px;
 }
 
 .gallery figure {
+  flex: 1 1 calc(50% - 8px);
+  min-width: 0;
   background: var(--img-bg);
   border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
 }
+
+/* the first chart in each gallery is the key one: give it the full card width
+   so its tick labels and legends are readable without clicking */
+.gallery figure:first-child {
+  flex: 1 1 100%;
+}
+
+.gallery figure:first-child figcaption { font-size: 0.86rem; }
 
 .gallery a { display: block; }
 
@@ -334,12 +466,15 @@ footer .socials a { margin: 0 10px; font-weight: 600; }
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
   .about-grid { grid-template-columns: 1fr; }
-  .gallery { grid-template-columns: 1fr; }
+  .gallery figure, .gallery figure:first-child { flex: 1 1 100%; }
   section { padding: 52px 0; }
 }
 
 @media (max-width: 520px) {
   .hero { min-height: 84vh; }
+  .nav-inner { padding: 0 16px; gap: 10px; }
+  .nav-brand-sub { display: none; }
+  .nav-link { font-size: 0.78rem; padding: 5px 8px; }
   .btn { display: block; margin: 0 0 12px; text-align: center; }
   .project-head { padding: 20px 20px 10px; }
   .project-body { padding: 0 20px 18px; }
