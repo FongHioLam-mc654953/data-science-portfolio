@@ -68,6 +68,9 @@
             I enjoy the process of discovery: asking good research questions, exploring data
             visually, building models that generalise, and communicating results clearly.
           </p>
+          <p class="about-actions">
+            <a class="btn btn-ghost" href="assets/cv/FONG_HIO_LAM_CV.pdf" target="_blank" rel="noopener">View CV (PDF)</a>
+          </p>
         </div>
         <ul class="fact-list">
           <li><b>🎓 Degree:</b> M.Sc. in Data Science &amp; AI (in progress) — University of Macau</li>
@@ -330,14 +333,31 @@
     </div>
   </section>
 
+  <!-- ================= Reflection ================= -->
+  <section id="reflection" class="reflection">
+    <div class="container">
+      <h2>Reflection</h2>
+      <p class="section-sub">What this portfolio shows I can do, where the analysis still falls short, and what I would change next.</p>
+      <article class="project-card">
+        <div class="project-body">
+          <p class="mod-desc">This portfolio records what I can now do end to end. I clean and explore data with Python and pandas, build regularised regressions in scikit-learn (Ridge tuned by GridSearchCV, Lasso from the same family) and validate them with k-fold cross-validation. I plot with matplotlib and seaborn, and my captions state conclusions, not axes. I keep the work in Git, publish it through GitHub Pages, and treat peer review as a to-do list: every PEER_FEEDBACK.md item is fixed or deferred with a reason.</p>
+          <p class="mod-desc">The limits are equally visible. My degree-5 polynomial on the Auto data returns a test R-squared of &minus;29.87, which says the features and sample size cannot support that flexibility. My alpha grid spans a single order of magnitude, so overfitting cannot be separated from an unlucky search range. Some datasets are course assets rather than openly licensed sources, and the split was made once rather than repeated, so my scores carry more uncertainty than the tables suggest.</p>
+          <p class="mod-desc">Next I would swap the single split for repeated cross-validation, widen the alpha grid across several orders of magnitude, and do feature engineering before adding model complexity. Then I would fold Modules 01 to 06 into one reproducible pipeline and finish the profile material &mdash; CV and records &mdash; the review found missing.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <!-- ================= Footer ================= -->
   <footer>
     <div class="container">
       <div class="socials">
         <a href="https://github.com/FongHioLam-mc654953/data-science-project" target="_blank" rel="noopener">GitHub</a>
         <a href="mailto:mc65495@um.edu.mo">Email</a>
+        <a href="assets/cv/FONG_HIO_LAM_CV.pdf" target="_blank" rel="noopener">View CV (PDF)</a>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#reflection">Reflection</a>
       </div>
       <p>© 2026 FONG HIO LAM · Built with ❤ for the data science portfolio</p>
     </div>

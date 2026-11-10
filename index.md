@@ -20,6 +20,7 @@ Currently pursuing my **M.Sc. in Data Science & AI** at the University of Macau.
 - **Programme**: M.Sc. in Data Science & AI (in progress)
 - **Key Courses**: CISC7021 Applied NLP · CISC7201 Data Mining · CISC7204 Machine Learning · CISC7026 Deep Learning
 - **Contact**: [mc65495@um.edu.mo](mailto:mc65495@um.edu.mo)
+- **CV**: [View CV (PDF)](assets/cv/FONG_HIO_LAM_CV.pdf)
 - **Course context**: CISC7204 Machine Learning · November 2026
 - **Peer review**: [PEER_FEEDBACK.md](PEER_FEEDBACK.md) — the review received on 2026-11-05 and the change made in response to each item
 
@@ -70,3 +71,11 @@ A complete machine learning project covering the full workflow: data import → 
 
 - **Repository**: [github.com/FongHioLam-mc654953/data-science-project](https://github.com/FongHioLam-mc654953/data-science-project)
 - **Status**: Completed
+
+## Reflection
+
+This portfolio records what I can now do end to end. I clean and explore data with Python and pandas, build regularised regressions in scikit-learn (Ridge tuned by GridSearchCV, Lasso from the same family) and validate them with k-fold cross-validation. I plot with matplotlib and seaborn, and my captions state conclusions, not axes. I keep the work in Git, publish it through GitHub Pages, and treat peer review as a to-do list: every PEER_FEEDBACK.md item is fixed or deferred with a reason.
+
+The limits are equally visible. My degree-5 polynomial on the Auto data returns a test R-squared of −29.87, which says the features and sample size cannot support that flexibility. My alpha grid spans a single order of magnitude, so overfitting cannot be separated from an unlucky search range. Some datasets are course assets rather than openly licensed sources, and the split was made once rather than repeated, so my scores carry more uncertainty than the tables suggest.
+
+Next I would swap the single split for repeated cross-validation, widen the alpha grid across several orders of magnitude, and do feature engineering before adding model complexity. Then I would fold Modules 01 to 06 into one reproducible pipeline and finish the profile material — CV and records — the review found missing.
