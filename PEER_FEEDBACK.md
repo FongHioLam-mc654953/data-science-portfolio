@@ -104,6 +104,8 @@ Action taken: adopted. The Projects section now opens with a **Project Overview*
 | 16 | Replaced the duplicated overfitting chart in the Module 05 gallery with the alpha-sweep chart and rewrote the two Module 06 captions so they describe the redrawn charts | 2.1, 2.6 | `index.html` | `80b6e14` |
 | 17 | Promoted the first chart of every gallery to the full card width so its tick labels and legends are readable without clicking; the remaining charts sit two to a row, a leftover chart fills the row, and every chart is full width below 860 px | 2.5 | `index.html`, `assets/css/style.css` | b4935ab |
 | 18 | Added a sticky top navigation bar with in-page links to About, Skills, Projects, Overview, Module 01–06, Preliminary and the repository, plus smooth scrolling, a `scroll-margin-top` offset so headings clear the bar, a horizontally scrolling link row on narrow screens and current-section highlighting | 3.5 | `index.html`, `assets/css/style.css` | b4935ab |
+| 19 | Published the course CV unchanged as `assets/cv/FONG_HIO_LAM_CV.pdf`, linked it as "View CV (PDF)" from the About section and the footer of `index.html` and from the About list in `index.md`, added a first-person Reflection section of 212 words to both landing files, and closed item 3.8 with a note that no LinkedIn profile exists | 3.8 | `index.html`, `index.md`, `PEER_FEEDBACK.md`, `assets/cv/FONG_HIO_LAM_CV.pdf` | `f82f0ca` |
+| 20 | Added the Rubric self-check section scoring all six criteria, with the evidence for each level and the gaps that remain | Submission record | `PEER_FEEDBACK.md` | `f82f0ca` |
 
 ### 3.1 Deferred and open items
 
